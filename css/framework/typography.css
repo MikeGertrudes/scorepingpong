@@ -1,0 +1,71 @@
+/* fonts */
+.helvetica-neue {
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+
+/* sizes */
+.font-size-small {
+	font-size: .8em;
+}
+.font-size-medium {
+	font-size: 14px;
+}
+.font-size-1p2em {
+	font-size: 1.2em;
+}
+.font-size-1p5em {
+	font-size: 1.5em;
+}
+.font-size-large {
+	font-size: 2em;
+}
+.font-size-extra-large {
+	font-size: 2.5em;
+}
+.font-weight-bold {
+	font-weight: 800;
+}
+
+.text-align-left {
+	text-align: left;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+.text-align-right {
+	text-align: right;
+}
+.text-decoration-none {
+	text-decoration: none;
+}
+.text-decoration-none:hover, .text-decoration-none:focus {
+	text-decoration: underline;
+}
+.text-indent {
+	text-indent: 1.5em;
+}
+
+i, em{
+	font-style: italic;
+}
+strong, b {
+	font-weight: bold;
+}
+
+/* line-height */
+.line-height-single {
+	line-height: 20px;
+}
+.line-height-double {
+	line-height: 40px;
+}
+.line-height-triple {
+	line-height: 60px;
+}
+
+.with-border {
+	border-bottom: 1px solid #ccc;
+}
