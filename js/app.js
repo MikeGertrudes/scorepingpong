@@ -1,4 +1,4 @@
-var app = angular.module('PingPongScoreKeeper', [
+var app = angular.module('ScorePingPong', [
 		'OverlayDirective',
 		'DotsDirective'
 	]);

@@ -1,4 +1,4 @@
-<html ng-app="PingPongScoreKeeper" ng-controller="langwijController" ng-keyup="handleKeyup($event)">
+<html ng-app="ScorePingPong" ng-controller="langwijController" ng-keyup="handleKeyup($event)">
 	<head>
 
 		<title>Score Ping Pong | Free Online Ping Pong Score Keeper</title>
@@ -30,7 +30,7 @@
 	</head>
 	<body class="enhanced gray-333333 helvetica-neue has-header-fixed">
 
-		<header class="nav bg-gray-e1e1e8 full-width position-fixed to-top z-index-1 touch-height bg-global-color-4" id="main_header">
+		<header class="nav full-width position-fixed to-top z-index-1 touch-height bg-global-color-4" id="main_header">
 			<ul>
 				<li class="display-inline-block width-one-third full-height text-align-left">
 					<form>
@@ -66,11 +66,10 @@
 				</li><!--
 			 --><li class="display-inline-block width-one-third middle text-align-center">
 					<h1>
-						<a href="" title="Home" class="text-decoration-none" id="logo">PPSK</a>
-						<dots ng-show="showLoading"></dots>
+						<a href="" title="Home" class="text-decoration-none" id="logo">Score Ping Pong</a>
 					</h1>
 				</li><!--
-			 --><li class="display-inline-block position-relative width-one-third full-height text-align-right">
+			 --><li class="display-inline-block position-relative width-one-third full-height text-align-right ng-hide">
 					<form name="language_selector" id="language_selector">
 						<select class="" name="language_selector_select" id="language_selector_select" ng-model="selectedScoreType" ng-options="scoreType.name for scoreType in scoreTypes">
 						</select>
@@ -78,6 +77,10 @@
 				</li>
 			</ul>
 		</header>
+
+		<section class="content narrow-width margin-0-auto padding-1em-0 bg-global-color-3">
+			<img src="img/logo_score_ping_pong.png" width="100%" class="ng-hide">
+		</section>
 
 		<section class="content narrow-width margin-0-auto padding-1em-0">
 
@@ -100,14 +103,14 @@
 
 				<form name="player_form" id="player_form">
 					<fieldset id="player_1_fieldset" class="">
-						<div class="scores vertical-align">
+						<div class="scores pts-{{ players.player_1.pts }} vertical-align">
 							<label for="add_player_1" class="vertical-align full-width" ng-model="players.player_1.pts">{{ players.player_1.pts }}</label>
 							<input id="add_player_1" type="submit" value="+1 Player 1" class="btn-add-points full-width display-none" ng-click="addPoints(1, 'player_1')">
 						</div>
 					</fieldset>
 
 					<fieldset id="player_2_fieldset" class="is-serving">
-						<div class="scores vertical-align">
+						<div class="scores pts-{{ players.player_2.pts }} vertical-align">
 							<label for="add_player_2" class="vertical-align full-width" ng-model="players.player_2.pts">{{ players.player_2.pts }}</label>
 							<input id="add_player_2" type="submit" value="+2 Player 2" class="btn-add-points full-width display-none" ng-click="addPoints(1, 'player_2')">
 						</div>
@@ -139,7 +142,7 @@
 				<h2 class="font-size-large font-weight-bold line-height-triple">Game Over</h2>
 				<p class="font-size-medium line-height-single">Congratulations to Player 1</p>
 				<p class="font-size-medium line-height-single">12-3</p>
-				<button ng-click="resetGame()">Start another game</button>
+				<button ng-click="gameOver = false">Start another game</button>
 			</div>
 		</overlay>
 

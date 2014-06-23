@@ -18,7 +18,7 @@ body.has-header-fixed .overlay {
 }
 /* header */
 #main_header {
-	border-bottom: 5px solid #b1078e;
+	border-bottom: 5px solid #64d585;
 }
 	#main_header .dot-container {
 		position: absolute;
@@ -45,10 +45,13 @@ label[for="language_selector_select"] {
 	height: 44px;
 }
 #logo {
-	color: white;
+	color: transparent;
 	text-transform: uppercase;
 	letter-spacing: 1;
 	font-size: 12px;
+	background: transparent url('../img/logo_score_ping_pong.png') 50% 0 no-repeat;
+	display: block;
+	background-size: 85%;
 }
 .circle {
     border-radius: 50%;
@@ -100,9 +103,9 @@ label[for="language_selector_select"] {
 	position: absolute;
 	top: 0;
 	left: 0;
-    background-color: green;
+    background-color: #285635;
 
-    border: 3px solid white;
+    border: 5px solid white;
     width: 100%;
     height: 100%;
 }
@@ -171,6 +174,7 @@ label[for="language_selector_select"] {
     top: .25em;
     font-weight: bold;
     font-family: courier;
+    color: transparent;
 }
 	.scores {
 		width: 50%;
@@ -178,10 +182,78 @@ label[for="language_selector_select"] {
 		background-color: white;
 		border: 1px solid black;
 		border-radius: 5px;
-	
 		height: 50%;
 		top: 25%;
-}
+		background: white url('../img/sprite_score.png') 50% 0px no-repeat;
+		transition: background .5s ease-in-out;
+	}
+		.pts-9 {
+			background-position-y: 0px;
+		}
+		.pts-8 {
+			background-position-y: -300px;
+		}
+		.pts-7 {
+			background-position-y: -600px;
+		}
+		.pts-6 {
+			background-position-y: -900px;
+		}
+		.pts-5 {
+			background-position-y: -1200px;
+		}
+		.pts-4 {
+			background-position-y: -1500px;
+		}
+		.pts-3 {
+			background-position-y: -1800px;
+		}
+		.pts-2 {
+			background-position-y: -2100px;
+		}
+		.pts-1 {
+			background-position-y: -2400px;
+		}
+		.pts-0 {
+			background-position-y: -2700px;
+		}
 	.btn-add-points {
 		
 	}
+
+@media only screen 
+	and (max-width: 568px) {
+		.scores {
+			background-size: 50%;
+		}
+			.pts-9 {
+				background-position-y: 7px;
+			}
+			.pts-8 {
+				background-position-y: -100px;
+			}
+			.pts-7 {
+				background-position-y: -206px;
+			}
+			.pts-6 {
+				background-position-y: -313px;
+			}
+			.pts-5 {
+				background-position-y: -420px;
+			}
+			.pts-4 {
+				background-position-y: -530px;
+			}
+			.pts-3 {
+				background-position-y: -633px;
+			}
+			.pts-2 {
+				background-position-y: -740px;
+			}
+			.pts-1 {
+				background-position-y: -846px;
+			}
+			.pts-0 {
+				background-position-y: -950px;
+			}
+}
