@@ -113,16 +113,6 @@ app.controller('langwijController', function ($scope, $document) {
 			document.getElementById('nav_primary_toggle').checked = true;
 		};
 
-		$scope.handleKeyup = function (event) {
-			if (event.keyCode === 37) { /* LEFT */
-				// do something
-			} else if (event.keyCode === 39) { /* RIGHT */
-				// do something
-			} else if (event.keyCode === 32) { /* SPACEBAR */
-				// do something
-			}
-		};
-
 		// use javascript to resize the board for the device (BOO!!!)
 		$scope.resizePingPongTable = function () {
 			console.log(window.innerWidth);
