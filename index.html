@@ -135,15 +135,15 @@
 
 		</section>
 
-		<footer class="messaging full-width bg-black white touch-height text-align-center position-fixed to-bottom z-index-1" ng-if="game.isOn">{{ servingPlayer.pts }} serving {{ receivingPlayer.pts }}</footer>
+		<footer class="messaging full-width bg-black white touch-height text-align-center position-fixed to-bottom z-index-1 ng-hide" ng-if="game.isOn">{{ servingPlayer.pts }} serving {{ receivingPlayer.pts }}</footer>
 
 
-		<overlay ng-transclude ng-show="gameOver" class="ng-hide">
+		<overlay ng-transclude ng-if="game.isOver">
 			<div class="content narrow-width full-height margin-0-auto padding-2em-1em bg-white">
 				<h2 class="font-size-large font-weight-bold line-height-triple">Game Over</h2>
-				<p class="font-size-medium line-height-single">Congratulations to Player 1</p>
-				<p class="font-size-medium line-height-single">12-3</p>
-				<button ng-click="gameOver = false">Start another game</button>
+				<p class="font-size-medium line-height-single ng-hide">Congratulations to Player 1</p>
+				<p class="font-size-medium line-height-single ng-hide">{{ players.player_1.pts }}-{{ players.player_2.pts }}</p>
+				<button class="btn bg-global-color-1 font-size-medium font-weight-bold full-width touch-height" ng-click="startGame()">Start a new Game</button>
 			</div>
 		</overlay>
 

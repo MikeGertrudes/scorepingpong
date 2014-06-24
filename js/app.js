@@ -7,7 +7,8 @@ app.controller('langwijController', function ($scope, $document) {
 
 		// game init
 		$scope.game = {
-			isOn: false
+			isOn: false,
+			isOver: false
 		};
 
 		// player init
@@ -38,6 +39,7 @@ app.controller('langwijController', function ($scope, $document) {
 		];
 		$scope.notificationCenter.hasNotifications = false;
 		$scope.notificationCenter.notificationCount = $scope.notificationCenter.notifications.length;
+		$scope.notificationCenter.notificationCount = 0;
 
 		$scope.scoreTypes = [
 			{
@@ -87,6 +89,10 @@ app.controller('langwijController', function ($scope, $document) {
 		$scope.resetGame = function () {
 			$scope.players.player_1.pts = 0;
 			$scope.players.player_2.pts = 0;
+			$scope.game = {
+				isOn: true,
+				isOver: false
+			}
 		}
 
 		$scope.getDifferenceBetweenPlayersScore = function () {
@@ -133,11 +139,11 @@ app.controller('langwijController', function ($scope, $document) {
 
 		// listen for GameOver messages
 		$scope.$on('GameOver', function (event, args) {
-			console.log('message recieved', args);
-			$scope.gameOver = true;
-			//alert('Game over. Congratulations ' + args.name + ' won!');
-			$scope.resetGame();
+			$scope.game.isOver = true;
 		});
+
+		// TODO: serving
+		// TODO: game.isOver.
 });
 
 // app.directive('youTubeEmbed', function ($sce) {
