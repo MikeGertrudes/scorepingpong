@@ -2,7 +2,9 @@
 	<head>
 
 		<title>Score Ping Pong | Free Online Ping Pong Score Keeper</title>
-		
+		<meta name="description" content="A free online ping pong score keeper. Great for table tennis players all over the world.">
+		<meta name="keywords" content="table tennis, ping pong, score, keeper, scoring, app, web app, online, free">
+
 		<meta name="viewport" content="initial-scale=1.0,width=320.1,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
 		
 		<link rel="stylesheet" type="text/css" href="css/framework/reset.css">
@@ -42,7 +44,7 @@
 								<h3 class="bg-black global-color-4 padding-0-1em font-weight-bold">General</h3>
 								<ul class="gray-eeeeee padding-1em">
 									<!--<li><a href="" class="gray-eeeeee text-decoration-none full-width touch-height">Home</a></li>-->
-									<li><a href="" class="gray-eeeeee text-decoration-none full-width touch-height" ng-click="resetGame()">Reset Game</a></li>
+									<li><a href="" class="gray-eeeeee text-decoration-none full-width touch-height" ng-click="closeSlidePanel();resetGame()">Reset Game</a></li>
 								</ul>
 							</div>
 							<div ng-if="user.isSignedIn">
@@ -110,9 +112,9 @@
 				<form name="player_form" id="player_form">
 					<fieldset id="player_1_fieldset" class="">
 						<div class="scores vertical-align">
-							<div class="score pts-{{ players.player_1.pts | getScoreNumberPosition:1}}">
+							<div class="score first-digit pts-{{ players.player_1.pts | getScoreNumberPosition:1}}">
 							</div>
-							<div class="score pts-{{ players.player_1.pts | getScoreNumberPosition:2}}">
+							<div class="score second-digit pts-{{ players.player_1.pts | getScoreNumberPosition:2}}">
 							</div>
 							<label for="add_player_1" class="full-width" ng-model="players.player_1.pts">{{ players.player_1.pts }}</label>
 							<input id="add_player_1" type="submit" value="+1 Player 1" class="btn-add-points full-width display-none" ng-click="addPoints(1, 'player_1')">
@@ -121,9 +123,9 @@
 
 					<fieldset id="player_2_fieldset" class="">
 						<div class="scores vertical-align">
-							<div class="score pts-{{ players.player_2.pts | getScoreNumberPosition:1}}">
+							<div class="score first-digit pts-{{ players.player_2.pts | getScoreNumberPosition:1}}">
 							</div>
-							<div class="score pts-{{ players.player_2.pts | getScoreNumberPosition:2}}">
+							<div class="score second-digit pts-{{ players.player_2.pts | getScoreNumberPosition:2}}">
 							</div>
 							<label for="add_player_2" class="full-width" ng-model="players.player_2.pts">{{ players.player_2.pts }}</label>
 							<input id="add_player_2" type="submit" value="+2 Player 2" class="btn-add-points full-width display-none" ng-click="addPoints(1, 'player_2')">

@@ -182,10 +182,13 @@ label[for="language_selector_select"] {
 		
     font-size: 5em;
     height: 100%;
-    top: .25em;
+    /* top: .25em; */
     font-weight: bold;
     font-family: courier;
     color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 	.scores {
 		width: 50%;
@@ -195,6 +198,7 @@ label[for="language_selector_select"] {
 		border-radius: 5px;
 		height: 50%;
 		top: 25%;
+		position: relative;
 	}
 		.scores .score {
 			background-color: white;
@@ -206,7 +210,16 @@ label[for="language_selector_select"] {
 			height: 100%;
 			float: left;
 			background-position-x: 50%;
+			position: absolute;
 		}
+			.scores .score.first-digit {
+				top: 0;
+				left: 0;
+			}
+			.scores .score.second-digit {
+				top: 0;
+				left: 50%;
+			}
 		.pts-9 {
 			background-position-y: 0px;
 		}
