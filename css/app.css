@@ -51,7 +51,7 @@ label[for="language_selector_select"] {
 	font-size: 12px;
 	background: transparent url('../img/logo_score_ping_pong.png') 50% 0 no-repeat;
 	display: block;
-	background-size: 85%;
+	background-size: 90px;
 }
 .logo-image {
 	margin-top: 60px;
@@ -107,7 +107,9 @@ label[for="language_selector_select"] {
 	}
 
 /* ping-pong-table */
-
+#ping_pong_table_container {
+	min-height: 100%;
+}
 .ping-pong-table {
 	position: absolute;
 	top: 0;
@@ -179,7 +181,7 @@ label[for="language_selector_select"] {
 			
 		
     font-size: 5em;
-    /* height: 100%; */
+    height: 100%;
     top: .25em;
     font-weight: bold;
     font-family: courier;
@@ -241,6 +243,10 @@ label[for="language_selector_select"] {
 
 @media only screen 
 	and (max-width: 568px) {
+		#ping_pong_table_container {
+			min-height: 420px;
+		}
+
 		.scores {
 		}
 			.scores .score {
