@@ -5,6 +5,11 @@ var app = angular.module('ScorePingPong', [
 
 app.controller('langwijController', function ($scope, $document) {
 
+		// game init
+		$scope.game = {
+			isOn: false
+		};
+
 		// player init
 		$scope.players = {};
 		$scope.players = {
@@ -73,6 +78,12 @@ app.controller('langwijController', function ($scope, $document) {
 			}
 		};
 
+		$scope.startGame = function () {
+			$scope.game.isOn = true;
+			$scope.resetGame();
+			// on init
+			$scope.resizePingPongTable();
+		}
 		$scope.resetGame = function () {
 			$scope.players.player_1.pts = 0;
 			$scope.players.player_2.pts = 0;
@@ -115,11 +126,10 @@ app.controller('langwijController', function ($scope, $document) {
 			var header_height = 44;
 
 			var ping_pong_table_height = window.innerHeight - (header_height + footer_height);
+			ping_pong_table_height = 420;
 			document.getElementById('ping_pong_table_container').style.height = ping_pong_table_height;
 		};
 
-		// on init
-		$scope.resizePingPongTable();
 
 		// listen for GameOver messages
 		$scope.$on('GameOver', function (event, args) {
@@ -172,4 +182,13 @@ app.factory('SearchVideos', function () {
 			return request;
 		}
 	};
+});
+
+app.filter('getScoreNumberPosition', function () {
+	return function (text, pos) {
+		var tmp = ('0' + String(text)).slice(-2);
+		console.log(tmp);
+
+		return tmp.charAt(pos - 1);
+	}
 });

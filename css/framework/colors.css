@@ -92,32 +92,32 @@ a:visited {
 
 /* custom */
 .global-color-1 {
-	color: #166502;
+	color: #64d585;
 }
 	.bg-global-color-1 {
-		background-color: #285635;
+		background-color: #64d585;
 	}
 .global-color-2 {
-	color: #51fe24;
-}
-	.bg-global-color-2 {
-		background-color: #51fe24;
-	}
-.global-color-3 {
-	color: #285635;
-}
-	.bg-global-color-3 {
-		background-color: #285635;
-	}
-.global-color-4 {
 	color: #46965d;
 }
-	.bg-global-color-4 {
+	.bg-global-color-2 {
 		background-color: #46965d;
 	}
+.global-color-3 {
+	color: #22492d;
+}
+	.bg-global-color-3 {
+		background-color: #22492d;
+	}
+.global-color-4 {
+	color: #285635;
+}
+	.bg-global-color-4 {
+		background-color: #285635;
+	}
 .global-color-5 {
-	color: #b1078e;
+	color: #183320;
 }
 	.bg-global-color-5 {
-		background-color: #b1078e;
+		background-color: #183320;
 	}

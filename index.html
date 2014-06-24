@@ -30,23 +30,23 @@
 	</head>
 	<body class="enhanced gray-333333 helvetica-neue has-header-fixed">
 
-		<header class="nav full-width position-fixed to-top z-index-1 touch-height bg-global-color-4" id="main_header">
+		<header class="nav full-width position-fixed to-top z-index-1 touch-height bg-global-color-2" id="main_header">
 			<ul>
 				<li class="display-inline-block width-one-third full-height text-align-left">
 					<form>
 						<label for="nav_primary_toggle" class="media-mobile white touch-height touch-width"></label>
 						<span class="circle notification" ng-if="notificationCenter.notificationCount">{{notificationCenter.notificationCount}}</span>
 		 				<input type="checkbox" class="nav-collapsible-toggle media-mobile touch-height touch-width is-hidden-via-opacity" name="nav_primary_toggle" id="nav_primary_toggle">
-						<nav class="slidepanel left with-transition font-size-medium bg-gray text-align-left">
+						<nav class="slidepanel left with-transition font-size-medium bg-global-color-5 text-align-left">
 							<div>
-								<h3 class="bg-gray-e1e1e8 padding-0-1em font-weight-bold">General</h3>
+								<h3 class="bg-black global-color-4 padding-0-1em font-weight-bold">General</h3>
 								<ul class="gray-eeeeee padding-1em">
 									<li><a href="" class="gray-eeeeee text-decoration-none full-width touch-height">Home</a></li>
 									<li><a href="" class="gray-eeeeee text-decoration-none full-width touch-height" ng-click="resetGame()">Reset Game</a></li>
 								</ul>
 							</div>
 							<div ng-if="user.isSignedIn">
-								<h3 class="bg-gray-e1e1e8 padding-0-1em font-weight-bold">My Account</h3>
+								<h3 class="bg-black global-color-4 padding-0-1em font-weight-bold">My Account</h3>
 								<ul class="gray-eeeeee padding-1em">
 									<li><a href="" class="gray-eeeeee text-decoration-none full-width touch-height">My Preferences</a></li>
 									<li><a href="" class="gray-eeeeee text-decoration-none full-width touch-height">Change Password</a></li>
@@ -55,7 +55,7 @@
 								</ul>
 							</div>
 							<div>
-								<h3 class="bg-gray-e1e1e8 padding-0-1em font-weight-bold">Help</h3>
+								<h3 class="bg-black global-color-4 padding-0-1em font-weight-bold">Help</h3>
 								<ul class="gray-eeeeee padding-1em">
 									<li><a href="" class="gray-eeeeee text-decoration-none full-width touch-height">F.A.Q.</a></li>
 									<li><a href="" class="gray-eeeeee text-decoration-none full-width touch-height">Contact Us</a></li>
@@ -78,11 +78,17 @@
 			</ul>
 		</header>
 
-		<section class="content narrow-width margin-0-auto padding-1em-0 bg-global-color-3">
-			<img src="img/logo_score_ping_pong.png" width="100%" class="ng-hide">
+		<section class="narrow-width margin-0-auto bg-global-color-3 full-height" ng-show="game.isOn == false">
+			<img src="img/logo_score_ping_pong.png" width="100%" class="logo-image">
+			<br>
+			<br>
+			<br>
+			<div class="padding-1em">
+				<button class="btn bg-global-color-1 font-size-medium font-weight-bold full-width touch-height" ng-click="startGame()">Start a Game</button>
+			</div>
 		</section>
 
-		<section class="content narrow-width margin-0-auto padding-1em-0">
+		<section class="narrow-width margin-0-auto padding-1em-0" ng-show="game.isOn">
 
 			<div class="position-relative full-height" id="ping_pong_table_container">
 
@@ -103,14 +109,22 @@
 
 				<form name="player_form" id="player_form">
 					<fieldset id="player_1_fieldset" class="">
-						<div class="scores pts-{{ players.player_1.pts }} vertical-align">
+						<div class="scores vertical-align">
+							<div class="score pts-{{ players.player_1.pts | getScoreNumberPosition:1}}">
+							</div>
+							<div class="score pts-{{ players.player_1.pts | getScoreNumberPosition:2}}">
+							</div>
 							<label for="add_player_1" class="vertical-align full-width" ng-model="players.player_1.pts">{{ players.player_1.pts }}</label>
 							<input id="add_player_1" type="submit" value="+1 Player 1" class="btn-add-points full-width display-none" ng-click="addPoints(1, 'player_1')">
 						</div>
 					</fieldset>
 
 					<fieldset id="player_2_fieldset" class="is-serving">
-						<div class="scores pts-{{ players.player_2.pts }} vertical-align">
+						<div class="scores vertical-align">
+							<div class="score pts-{{ players.player_2.pts | getScoreNumberPosition:1}}">
+							</div>
+							<div class="score pts-{{ players.player_2.pts | getScoreNumberPosition:2}}">
+							</div>
 							<label for="add_player_2" class="vertical-align full-width" ng-model="players.player_2.pts">{{ players.player_2.pts }}</label>
 							<input id="add_player_2" type="submit" value="+2 Player 2" class="btn-add-points full-width display-none" ng-click="addPoints(1, 'player_2')">
 						</div>
@@ -121,23 +135,10 @@
 
 		</section>
 
-		<hr>
-
-		<footer class="text-align-center">
-			<nav id="tertiary" class="padding-1em">
-				<ul class="nav-stackable with-pipes">
-					<li><a href="" title="" class="font-size-medium">Home</a></li>
-					<li><a href="" title="" class="font-size-medium">About</a></li>
-					<li><a href="" title="" class="font-size-medium">F.A.Q.</a></li>
-				</ul>
-			</nav>
-			<span class="copyright display-block padding-1em font-size-medium">&copy; 2014 langwij</span>
-		</footer>
-
-		<p class="messaging full-width bg-white touch-height text-align-center position-fixed to-bottom z-index-1">{{ servingPlayer.pts }} serving {{ receivingPlayer.pts }}</p>
+		<footer class="messaging full-width bg-black white touch-height text-align-center position-fixed to-bottom z-index-1" ng-if="game.isOn">{{ servingPlayer.pts }} serving {{ receivingPlayer.pts }}</footer>
 
 
-		<overlay ng-transclude ng-show="gameOver">
+		<overlay ng-transclude ng-show="gameOver" class="ng-hide">
 			<div class="content narrow-width full-height margin-0-auto padding-2em-1em bg-white">
 				<h2 class="font-size-large font-weight-bold line-height-triple">Game Over</h2>
 				<p class="font-size-medium line-height-single">Congratulations to Player 1</p>

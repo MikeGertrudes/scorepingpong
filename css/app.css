@@ -53,6 +53,15 @@ label[for="language_selector_select"] {
 	display: block;
 	background-size: 85%;
 }
+.logo-image {
+	margin-top: 60px;
+}
+.btn {
+	/* border-bottom: 5px solid #183320; */
+	box-shadow: 0px 5px 0px #183320;
+	-moz-box-shadow: 0px 5px 0px #183320;
+	-webkit-box-shadow: 0px 5px 0px #183320;
+}
 .circle {
     border-radius: 50%;
     width: 16px;
@@ -180,13 +189,22 @@ label[for="language_selector_select"] {
 		width: 50%;
 		margin: 0 auto;
 		background-color: white;
-		border: 1px solid black;
+		/* border: 1px solid black; */
 		border-radius: 5px;
 		height: 50%;
 		top: 25%;
-		background: white url('../img/sprite_score.png') 50% 0px no-repeat;
-		transition: background .5s ease-in-out;
 	}
+		.scores .score {
+			background-color: white;
+			background-image: url('../img/sprite_score.png');
+			background-repeat: no-repeat;
+			transition: background .25s ease-in-out;
+			width: 50%;
+			display: block;
+			height: 100%;
+			float: left;
+			background-position-x: 50%;
+		}
 		.pts-9 {
 			background-position-y: 0px;
 		}
@@ -224,36 +242,38 @@ label[for="language_selector_select"] {
 @media only screen 
 	and (max-width: 568px) {
 		.scores {
-			background-size: 50%;
 		}
+			.scores .score {
+				background-size: 65px;
+			}
 			.pts-9 {
-				background-position-y: 7px;
+				background-position-y: 2px;
 			}
 			.pts-8 {
-				background-position-y: -100px;
+				background-position-y: -95px;
 			}
 			.pts-7 {
-				background-position-y: -206px;
+				background-position-y: -192px;
 			}
 			.pts-6 {
-				background-position-y: -313px;
+				background-position-y: -289px;
 			}
 			.pts-5 {
-				background-position-y: -420px;
+				background-position-y: -386px;
 			}
 			.pts-4 {
-				background-position-y: -530px;
+				background-position-y: -485px;
 			}
 			.pts-3 {
-				background-position-y: -633px;
+				background-position-y: -582px;
 			}
 			.pts-2 {
-				background-position-y: -740px;
+				background-position-y: -680px;
 			}
 			.pts-1 {
-				background-position-y: -846px;
+				background-position-y: -778px;
 			}
 			.pts-0 {
-				background-position-y: -950px;
+				background-position-y: -875px;
 			}
 }
