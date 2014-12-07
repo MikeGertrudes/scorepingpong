@@ -85,15 +85,16 @@ app.controller('langwijController', function ($scope, $document) {
 			$scope.resetGame();
 			// on init
 			$scope.resizePingPongTable();
-		}
+		};
+
 		$scope.resetGame = function () {
 			$scope.players.player_1.pts = 0;
 			$scope.players.player_2.pts = 0;
 			$scope.game = {
 				isOn: true,
 				isOver: false
-			}
-		}
+			};
+		};
 
 		$scope.getDifferenceBetweenPlayersScore = function () {
 			return Math.abs($scope.players.player_1.pts - $scope.players.player_2.pts);
@@ -186,5 +187,5 @@ app.filter('getScoreNumberPosition', function () {
 		console.log(tmp);
 
 		return tmp.charAt(pos - 1);
-	}
+	};
 });
